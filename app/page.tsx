@@ -4,6 +4,8 @@ import { useState, useRef, useCallback } from "react";
 
 import {
   FACEBOOK_POST_URL,
+  SUBID,
+  VOUCHER_URL,
   ZALO_HELP_URL,
   ZALO_NOTIFY_GROUP_URL,
 } from "@/lib/site-config";
@@ -110,7 +112,7 @@ export default function Home() {
         <div className="mx-auto max-w-lg flex items-center justify-center gap-3">
           <div>
             <h1 className="text-white text-xl font-extrabold leading-tight tracking-tight">
-              ĐỔI LINK SHOPEE
+              LẤY MÃ GIẢM GIÁ
             </h1>
           </div>
         </div>
@@ -118,6 +120,11 @@ export default function Home() {
 
       <main className="flex-1 w-full max-w-lg mx-auto px-4 pt-5 pb-8">
         {/* Step indicator */}
+
+        <a href={VOUCHER_URL} target="_blank">
+          <img src="https://down-vn.img.susercontent.com/file/vn-11134258-81ztc-mpuacrbx6c5p53@resize_w1920_nl.webp" alt="Shopee"/>
+        </a> <br />
+
         <div className="flex items-center justify-center gap-2 mb-4">
           <span
             className={`rounded-full px-3 py-1 text-xs font-bold ${
@@ -126,7 +133,7 @@ export default function Home() {
                 : "bg-slate-200 text-slate-500"
             }`}
           >
-            1 · Nhập link &amp; chuyển đổi
+            1 · Nhập link &amp; lấy mã
           </span>
           <span className="text-slate-300">→</span>
           <span
@@ -166,7 +173,7 @@ export default function Home() {
                 setInputUrl(e.target.value);
                 setError("");
               }}
-              placeholder="Dán link Shopee vào đây và nhấn chuyển đổi..."
+              placeholder="Dán link Shopee vào đây và nhấn & lấy mã..."
               rows={4}
               className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm outline-none transition resize-none cursor-text placeholder:text-slate-400 focus:border-[#ee4d2d] focus:ring-2 focus:ring-[#ee4d2d]/15"
               style={{ fontSize: "16px" }}
@@ -209,7 +216,7 @@ export default function Home() {
                   <span>ĐANG XỬ LÝ...</span>
                 </>
               ) : (
-                <span>CHUYỂN ĐỔI NGAY</span>
+                <span>LẤY MÃ NGAY</span>
               )}
             </button>
           </div>
@@ -277,12 +284,31 @@ export default function Home() {
                   className="flex items-center justify-center gap-2 rounded-full bg-[#ee4d2d] px-3 py-3.5 text-sm font-bold text-white cursor-pointer select-none transition-all duration-150 active:scale-[0.97] active:brightness-90 shadow-lg shadow-[#ee4d2d]/25 hover:shadow-xl text-center"
                 >
                   <span>🛒</span>
-                  <span>Mua ngay</span>
+                  <span>ÁP DỤNG VOUCHER</span>
                 </a>
+
+                <a
+                  href={VOUCHER_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex w-full items-center justify-center gap-2 rounded-full bg-[#1877F2] px-4 py-3.5 text-sm font-bold text-white cursor-pointer select-none transition-all duration-150 active:scale-[0.97] active:brightness-90 shadow-md shadow-blue-300/40 hover:shadow-lg"
+                >
+                  <span>📘</span>
+                  <span>XEM VOUCHER</span>
+                </a>
+
+                <button
+                  type="button"
+                  onClick={backToStep1}
+                  className="w-full rounded-full border-2 border-slate-200 bg-white py-3 text-sm font-bold text-slate-600 cursor-pointer active:scale-[0.98] hover:bg-slate-50"
+                >
+                  ← & lấy mã link khác
+                </button>
+
               </div>
             </div>
 
-            <div className="rounded-2xl bg-blue-50 border border-blue-200 p-4">
+            {/* <div className="rounded-2xl bg-blue-50 border border-blue-200 p-4">
               <p className="text-sm font-semibold text-blue-800 mb-2">
                 Comment lên Facebook
               </p>
@@ -299,15 +325,7 @@ export default function Home() {
                 <span>📘</span>
                 <span>Mở bài viết để comment</span>
               </a>
-            </div>
-
-            <button
-              type="button"
-              onClick={backToStep1}
-              className="w-full rounded-full border-2 border-slate-200 bg-white py-3 text-sm font-bold text-slate-600 cursor-pointer active:scale-[0.98] hover:bg-slate-50"
-            >
-              ← Chuyển đổi link khác
-            </button>
+            </div> */}
           </div>
         )}
 
@@ -340,7 +358,7 @@ export default function Home() {
         <p className="text-xs text-slate-400">
           © 2026{" "}
           <span className="font-bold text-slate-500">
-            HOANXU.VN - MUA SẮM &amp; HOÀN TIỀN
+            shopee.vn - MUA SẮM &amp; HOÀN TIỀN
           </span>
         </p>
       </footer>
