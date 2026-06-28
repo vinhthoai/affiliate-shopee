@@ -1,14 +1,15 @@
 import axios from "axios";
 import { NextRequest, NextResponse } from "next/server";
 
-import { getAffiliateId } from "@/lib/site-config";
+import { getAffiliateId, SUBID } from "@/lib/site-config";
 
 function buildAffiliateLink(
   baseUrl: string,
   affiliateId: string,
+  subId: string ,
 ): string {
   const encodedUrl = encodeURIComponent(baseUrl);
-  return `https://s.shopee.vn/an_redir?origin_link=${encodedUrl}&affiliate_id=${affiliateId}&sub_id=-----`;
+  return `https://s.shopee.vn/an_redir?origin_link=${encodedUrl}&affiliate_id=${affiliateId}&sub_id=${subId}`;
 }
 
 function normalizeInputUrl(raw: string): string {
@@ -62,6 +63,7 @@ export async function POST(request: NextRequest) {
     const affiliateUrl = buildAffiliateLink(
       realUrl.replace("opaanlp", "product"),
       getAffiliateId(),
+      SUBID
     );
 
     return NextResponse.json({
