@@ -16,9 +16,9 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "Đổi Link Shopee",
+  title: "LẤY MÃ GIẢM GIÁ",
   description:
-    "Chuyển đổi link Shopee. Dán link sản phẩm và nhận link affiliate ngay.",
+    "Chuyển LẤY MÃ GIẢM GIÁ. Dán link sản phẩm và nhận link affiliate ngay.",
 };
 
 export default function RootLayout({
